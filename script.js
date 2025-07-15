@@ -59,10 +59,10 @@ const thirdBurger = structuredClone(hamburger);
 // *Code Question 4*
 
 // Il metodo megliore per clonare l'oggetto chef è lo spread operator,
-// perchè permette di copiare anche le funzioni
+// perchè permette di clonare anche le sue funzioni
 
 //Il metodo migliore per clonare l'oggetto resturant è lo structuredClone(),
-// perchè mi permette di copiare oggetti annidati
+// perchè mi permette di clonare oggetti annidati
 
 const chef = {
     name: "Chef Hyur",
@@ -91,7 +91,7 @@ const restaurant = {
 // Nel terzo console.log avremo "Hyur's II"
 // Nel quarto console.log avremo "Hyur's II"
 
-// Sono stati creati 9 oggetti
+// Sono stati creati 5 oggetti
 
 
 // *Code Question 6*
@@ -123,4 +123,21 @@ const chefBonus = {
     }
 }
 
-const newChefBonus = strucruded
+function newChefBonus(p) {
+    if (typeof p !== 'object') {
+        return obj
+    }
+    const copy = {};
+    for (const key in p) {
+        const value = p[key];
+        if (typeof value !== 'object') {
+            copy[key] = value
+        } else {
+            copy[key] = deepCopy(value)
+        }
+    }
+    return copy;
+}
+
+const chefCopy = newChefBonus(chef)
+console.log(chefCopy)
